@@ -1,0 +1,7 @@
+1. Para este proyecto se hizo uso del react-router-dom y se vio en las carpetas de routes y router, revisar para aprender mas
+2. Para el tema del navbar ver el 'HeroesRoutes' como se establece en esa suite de rutas, ahora ese archivo es importado en el router principal que a su ves es importado en el main App del proyecto
+3. La mayoria de cosas es estilos con bootstrap pero lo interesante es en el search y el uso de un hook global: useForm asi que hay que revisar
+4. Uso del Navigate y el Location hicieron posible la extraccion del query para la busqueda en el 'SearchPage'
+5. Se hizo en el SearchPage una validacion para la busqueda y se hizo mediante la extraccion del query
+
+6.
