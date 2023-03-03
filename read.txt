@@ -4,4 +4,18 @@
 4. Uso del Navigate y el Location hicieron posible la extraccion del query para la busqueda en el 'SearchPage'
 5. Se hizo en el SearchPage una validacion para la busqueda y se hizo mediante la extraccion del query
 
-6.
+6. Se hizo unos archivos types y de context para manejar las acciones de login(types.js) y el context(AuthContext)
+7. Tambien se hizo el hook del Reducer para manejar las acciones por medio de un switch
+8. En el provider crearemos el proveedor de los estados con los que se manjeran las acciones de login y logout
+9. Lo que queda es ir al archivo principal de la aplicacion y declarar el provider por sobre la App: <AuthProvider><AppRouter /></AuthProvider>
+10. Realizado la configuracion de las etiquetas solo queda darle logica al provider: creamos la funcion login() donde usaremos el dispatch para enviar la acccion que permitiral el login
+11. Vamos a LoginPage e instanciamos el useContext para traer al provider y desglozamos la funcion de login que se enviara por medio de un evento onClick desde un boton, este mandara el usuario que hara el login
+12. Ahora que tenemos la accion de login vamos al Navbar y dentro vamos a extreaer el usuario que es enviado desde el LoginPage gracias a 'const {user} = useContext(AuthContext)'  y esto en el span lo leemos asi 'user?.name' y ya
+13. OJO: es importante saber que necesitamos hacer siempre el login si es que queremos cargar el nombre porqe al recargar la pagina de la sesion abierta se pierde y necesitamos volver ha hacer el login
+14. Para guardar en el localStorage la sesion del usuario y no se pierda con cada recarga:
+    14.1 Vamos a crear una funcion 'init' en nuestro provider que enviara como inicializacion la captura del usuario
+    14.2 En el metodo de login podremos setear en el localStorage cuando se dispare la accion login y se guardara en el storage el usuario
+    14.3 Tambien se creo una funcion logout para remover el usuario guardado del storage enviando la accion
+    14.5 finalmente en las etiquetas del provider se envian ambas funciones con el estado de autenticacion para los coponentes hijos
+15. Ahora hacemos una ruta privada: creamos un PrivateRoute en el router y ahi verificamos si estamos con el estado logeado del provider, si lo esta mandamos el componente hijo sino el login
+16. Una vez creado mi PrivateRoute vamos a incrustarlo en el AppRouter como una ruta normal pero incluyendole como su hijo el 'HeroesRoutes'
